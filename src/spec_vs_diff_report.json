@@ -1,0 +1,47 @@
+{
+  "kind": "spec_vs_diff_report",
+  "version": "1.0",
+  "generatedAt": "2026-02-22T07:56:13.969Z",
+  "summary": "The diff implements a comprehensive course marketplace feature including backend data types, CRUD endpoints, frontend pages, components, routing, and React Query hooks. All core requirements are implemented with proper authentication, data structures, UI components, and navigation. The implementation follows existing patterns and constraints.",
+  "missing_requirements": [],
+  "hallucinated_features": [
+    {
+      "description": "Migration module with run function for state migration from OldActor to NewActor including courses and enrollments maps",
+      "reason": "BuildRequest does not specify any migration requirements or backward compatibility concerns for existing data structures",
+      "evidence": [
+        "backend/migration.mo",
+        "backend/main.mo"
+      ]
+    },
+    {
+      "description": "Edit/update functionality for course creators on course detail page",
+      "reason": "REQ-13 mentions 'Course creators see edit options for their own courses' but BuildRequest non-goals and requirements do not specify update/edit course functionality - only create and read operations",
+      "evidence": [
+        "frontend/src/pages/CourseDetailPage.tsx"
+      ]
+    },
+    {
+      "description": "Enrolled courses section visible on user's own profile page",
+      "reason": "REQ-14 specifies enrolled courses section should be visible on user profile pages, but the acceptance criteria states it should only show on the user's own profile, creating ambiguity. The implementation shows it only for own profile which may be more restrictive than intended",
+      "evidence": [
+        "frontend/src/pages/UserProfilePage.tsx"
+      ]
+    }
+  ],
+  "confidence": 0.92,
+  "changed_files": [
+    "backend/main.mo",
+    "backend/migration.mo",
+    "frontend-file-summaries.txt",
+    "frontend/src/App.tsx",
+    "frontend/src/components/CourseCard.tsx",
+    "frontend/src/components/CreateCourseForm.tsx",
+    "frontend/src/components/Layout.tsx",
+    "frontend/src/hooks/useQueries.ts",
+    "frontend/src/pages/CourseDetailPage.tsx",
+    "frontend/src/pages/CreateCoursePage.tsx",
+    "frontend/src/pages/MarketplacePage.tsx",
+    "frontend/src/pages/UserProfilePage.tsx",
+    "project_state.json"
+  ]
+}

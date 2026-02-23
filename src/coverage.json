@@ -1,0 +1,146 @@
+{
+  "kind": "coverage_report",
+  "version": "1.0",
+  "generatedAt": "2026-02-22T07:56:13.973Z",
+  "sources": {
+    "buildRequest": true,
+    "implementationPlan": true
+  },
+  "requirements": {
+    "total": 10,
+    "implemented": 6,
+    "items": [
+      {
+        "id": "REQ-10",
+        "summary": "Implement backend endpoints for enrolling in courses (authenticated users only), retrieving user enrollments, and checking if a user is enrolled in a specific course",
+        "status": "unknown",
+        "plannedFiles": [],
+        "matchedFiles": []
+      },
+      {
+        "id": "REQ-11",
+        "summary": "Create a marketplace page that displays all available courses in a grid layout with course cards showing thumbnail, title, creator name, price, and enrollment count",
+        "status": "implemented",
+        "plannedFiles": [
+          "frontend/src/pages/MarketplacePage.tsx",
+          "frontend/src/components/CourseCard.tsx",
+          "frontend/src/App.tsx"
+        ],
+        "matchedFiles": [
+          "frontend/src/pages/MarketplacePage.tsx",
+          "frontend/src/components/CourseCard.tsx",
+          "frontend/src/App.tsx"
+        ]
+      },
+      {
+        "id": "REQ-12",
+        "summary": "Create a create course page with a form allowing authenticated users to create new courses by entering title, description, price, and uploading a thumbnail image",
+        "status": "implemented",
+        "plannedFiles": [
+          "frontend/src/pages/CreateCoursePage.tsx",
+          "frontend/src/components/CreateCourseForm.tsx",
+          "frontend/src/App.tsx"
+        ],
+        "matchedFiles": [
+          "frontend/src/pages/CreateCoursePage.tsx",
+          "frontend/src/components/CreateCourseForm.tsx",
+          "frontend/src/App.tsx"
+        ]
+      },
+      {
+        "id": "REQ-13",
+        "summary": "Create a course detail page showing full course information, creator profile, enrollment button for non-enrolled users, and access to course content for enrolled users",
+        "status": "implemented",
+        "plannedFiles": [
+          "frontend/src/pages/CourseDetailPage.tsx",
+          "frontend/src/App.tsx"
+        ],
+        "matchedFiles": [
+          "frontend/src/pages/CourseDetailPage.tsx",
+          "frontend/src/App.tsx"
+        ]
+      },
+      {
+        "id": "REQ-14",
+        "summary": "Add a 'My Courses' section to user profile pages showing courses created by the user and courses they are enrolled in, with separate tabs or sections for each",
+        "status": "implemented",
+        "plannedFiles": [
+          "frontend/src/pages/UserProfilePage.tsx"
+        ],
+        "matchedFiles": [
+          "frontend/src/pages/UserProfilePage.tsx"
+        ]
+      },
+      {
+        "id": "REQ-15",
+        "summary": "Add a navigation link to the marketplace in the header layout alongside existing navigation elements",
+        "status": "implemented",
+        "plannedFiles": [
+          "frontend/src/components/Layout.tsx"
+        ],
+        "matchedFiles": [
+          "frontend/src/components/Layout.tsx"
+        ]
+      },
+      {
+        "id": "REQ-16",
+        "summary": "Create React Query hooks for all course-related backend operations including creating courses, fetching all courses, fetching user courses, enrolling in courses, and fetching user enrollments",
+        "status": "implemented",
+        "plannedFiles": [
+          "frontend/src/hooks/useQueries.ts"
+        ],
+        "matchedFiles": [
+          "frontend/src/hooks/useQueries.ts"
+        ]
+      },
+      {
+        "id": "REQ-7",
+        "summary": "Create a Course data type in the backend with fields for course ID, creator principal, title, description, price (in tokens or ICP), thumbnail URL, creation timestamp, and enrollment count",
+        "status": "unknown",
+        "plannedFiles": [],
+        "matchedFiles": []
+      },
+      {
+        "id": "REQ-8",
+        "summary": "Implement backend endpoints for creating courses (authenticated users only), retrieving all courses, retrieving courses by creator, and retrieving a single course by ID",
+        "status": "unknown",
+        "plannedFiles": [],
+        "matchedFiles": []
+      },
+      {
+        "id": "REQ-9",
+        "summary": "Add an Enrollment data type to track which users have enrolled in which courses, with fields for enrollment ID, user principal, course ID, enrollment timestamp, and completion status",
+        "status": "unknown",
+        "plannedFiles": [],
+        "matchedFiles": []
+      }
+    ]
+  },
+  "changedFiles": [
+    "backend/main.mo",
+    "backend/migration.mo",
+    "build-request.json",
+    "build-template/README.md",
+    "feature_evidence.json",
+    "frontend-file-summaries.txt",
+    "frontend-implementation-plan.json",
+    "frontend/public/assets/generated/course-placeholder.dim_400x300.png",
+    "frontend/src/App.tsx",
+    "frontend/src/backend.d.ts",
+    "frontend/src/backend.ts",
+    "frontend/src/components/CourseCard.tsx",
+    "frontend/src/components/CreateCourseForm.tsx",
+    "frontend/src/components/Layout.tsx",
+    "frontend/src/declarations/backend.did.d.ts",
+    "frontend/src/declarations/backend.did.js",
+    "frontend/src/hooks/useQueries.ts",
+    "frontend/src/pages/CourseDetailPage.tsx",
+    "frontend/src/pages/CreateCoursePage.tsx",
+    "frontend/src/pages/MarketplacePage.tsx",
+    "frontend/src/pages/UserProfilePage.tsx",
+    "project_state.json",
+    "scratch/component-selection.json",
+    "spec.md",
+    "spec_vs_diff_report.json"
+  ]
+}

@@ -1,0 +1,216 @@
+{
+  "kind": "build_request",
+  "title": "Add course marketplace for traders to monetize their knowledge",
+  "projectName": "Stock Sphere",
+  "priority": "normal",
+  "requirements": [
+    {
+      "id": "REQ-7",
+      "text": "Create a Course data type in the backend with fields for course ID, creator principal, title, description, price (in tokens or ICP), thumbnail URL, creation timestamp, and enrollment count",
+      "target": "backend",
+      "source": {
+        "messageIds": [
+          "msg-user-yes"
+        ],
+        "quotes": [
+          "add a course marketplace next so traders can monetize their knowledge"
+        ]
+      },
+      "acceptanceCriteria": [
+        "Course type is defined in backend/main.mo with all required fields",
+        "Course records can be created and retrieved",
+        "Creator principal is stored to identify course owners"
+      ]
+    },
+    {
+      "id": "REQ-8",
+      "text": "Implement backend endpoints for creating courses (authenticated users only), retrieving all courses, retrieving courses by creator, and retrieving a single course by ID",
+      "target": "backend",
+      "source": {
+        "messageIds": [
+          "msg-user-yes"
+        ],
+        "quotes": [
+          "add a course marketplace next so traders can monetize their knowledge"
+        ]
+      },
+      "acceptanceCriteria": [
+        "Create course endpoint validates authentication and required fields",
+        "Get all courses endpoint returns array of all available courses",
+        "Get courses by creator filters by principal ID",
+        "Get course by ID returns single course or error if not found"
+      ]
+    },
+    {
+      "id": "REQ-9",
+      "text": "Add an Enrollment data type to track which users have enrolled in which courses, with fields for enrollment ID, user principal, course ID, enrollment timestamp, and completion status",
+      "target": "backend",
+      "source": {
+        "messageIds": [
+          "msg-user-yes"
+        ],
+        "quotes": [
+          "add a course marketplace next so traders can monetize their knowledge"
+        ]
+      },
+      "acceptanceCriteria": [
+        "Enrollment type is defined with user-course relationship",
+        "Each enrollment is uniquely identifiable",
+        "Completion status can be tracked and updated"
+      ]
+    },
+    {
+      "id": "REQ-10",
+      "text": "Implement backend endpoints for enrolling in courses (authenticated users only), retrieving user enrollments, and checking if a user is enrolled in a specific course",
+      "target": "backend",
+      "source": {
+        "messageIds": [
+          "msg-user-yes"
+        ],
+        "quotes": [
+          "add a course marketplace next so traders can monetize their knowledge"
+        ]
+      },
+      "acceptanceCriteria": [
+        "Enroll endpoint prevents duplicate enrollments for the same user-course pair",
+        "Get user enrollments returns all courses a user is enrolled in",
+        "Check enrollment endpoint returns boolean for enrollment status"
+      ]
+    },
+    {
+      "id": "REQ-11",
+      "text": "Create a marketplace page that displays all available courses in a grid layout with course cards showing thumbnail, title, creator name, price, and enrollment count",
+      "target": "frontend",
+      "source": {
+        "messageIds": [
+          "msg-user-yes"
+        ],
+        "quotes": [
+          "add a course marketplace next so traders can monetize their knowledge"
+        ]
+      },
+      "acceptanceCriteria": [
+        "Marketplace page is accessible via route /marketplace",
+        "Course cards display all required information",
+        "Grid layout is responsive and follows existing design system",
+        "Loading states and empty states are handled"
+      ]
+    },
+    {
+      "id": "REQ-12",
+      "text": "Create a create course page with a form allowing authenticated users to create new courses by entering title, description, price, and uploading a thumbnail image",
+      "target": "frontend",
+      "source": {
+        "messageIds": [
+          "msg-user-yes"
+        ],
+        "quotes": [
+          "add a course marketplace next so traders can monetize their knowledge"
+        ]
+      },
+      "acceptanceCriteria": [
+        "Create course page requires authentication",
+        "Form validates all required fields before submission",
+        "Image upload shows progress and handles errors",
+        "Success message and navigation to marketplace after creation"
+      ]
+    },
+    {
+      "id": "REQ-13",
+      "text": "Create a course detail page showing full course information, creator profile, enrollment button for non-enrolled users, and access to course content for enrolled users",
+      "target": "frontend",
+      "source": {
+        "messageIds": [
+          "msg-user-yes"
+        ],
+        "quotes": [
+          "add a course marketplace next so traders can monetize their knowledge"
+        ]
+      },
+      "acceptanceCriteria": [
+        "Course detail page is accessible via route /course/:id",
+        "Page displays all course information and creator details",
+        "Enrollment button is visible only to authenticated non-enrolled users",
+        "Enrolled users can see course content or access link",
+        "Course creators see edit options for their own courses"
+      ]
+    },
+    {
+      "id": "REQ-14",
+      "text": "Add a 'My Courses' section to user profile pages showing courses created by the user and courses they are enrolled in, with separate tabs or sections for each",
+      "target": "frontend",
+      "source": {
+        "messageIds": [
+          "msg-user-yes"
+        ],
+        "quotes": [
+          "add a course marketplace next so traders can monetize their knowledge"
+        ]
+      },
+      "acceptanceCriteria": [
+        "User profile page includes course sections below existing content",
+        "Created courses section shows all courses by the user",
+        "Enrolled courses section shows all courses user has enrolled in",
+        "Sections are visually distinct and follow existing design patterns"
+      ]
+    },
+    {
+      "id": "REQ-15",
+      "text": "Add a navigation link to the marketplace in the header layout alongside existing navigation elements",
+      "target": "frontend",
+      "source": {
+        "messageIds": [
+          "msg-user-yes"
+        ],
+        "quotes": [
+          "add a course marketplace next so traders can monetize their knowledge"
+        ]
+      },
+      "acceptanceCriteria": [
+        "Marketplace link is visible in the header",
+        "Link is consistently styled with existing navigation elements",
+        "Active route highlighting works for marketplace pages"
+      ]
+    },
+    {
+      "id": "REQ-16",
+      "text": "Create React Query hooks for all course-related backend operations including creating courses, fetching all courses, fetching user courses, enrolling in courses, and fetching user enrollments",
+      "target": "frontend",
+      "source": {
+        "messageIds": [
+          "msg-user-yes"
+        ],
+        "quotes": [
+          "add a course marketplace next so traders can monetize their knowledge"
+        ]
+      },
+      "acceptanceCriteria": [
+        "Hooks follow existing patterns in useQueries.ts",
+        "Automatic cache invalidation on mutations",
+        "Loading and error states are properly handled",
+        "Type-safe query keys and results"
+      ]
+    }
+  ],
+  "constraints": [
+    "Do not modify immutable frontend paths: frontend/src/hooks/useInternetIdentity.ts, frontend/src/hooks/useActor.ts, frontend/src/main.tsx, frontend/src/components/ui",
+    "Follow single-actor architecture pattern established in backend/main.mo",
+    "Use existing authentication and authorization patterns from the codebase",
+    "Maintain consistency with existing warm earth tone color scheme avoiding blue and purple",
+    "Follow existing code patterns for CRUD operations and React Query hooks"
+  ],
+  "nonGoals": [
+    "Payment processing or integration with external payment systems",
+    "Video hosting or streaming infrastructure for course content",
+    "Real-time notifications for course enrollments",
+    "Course review or rating system",
+    "Course curriculum management with modules and lessons",
+    "Certificate generation for course completion"
+  ],
+  "imageRequirements": {
+    "required": [
+      "Course placeholder thumbnail illustration showing trading chart or education theme (course-placeholder.dim_400x300.png)"
+    ],
+    "edits": []
+  }
+}

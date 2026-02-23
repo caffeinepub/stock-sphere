@@ -1,0 +1,134 @@
+{
+  "kind": "implementation_plan",
+  "version": "1.0",
+  "title": "Add course marketplace for traders to monetize their knowledge",
+  "requirements": [
+    {
+      "id": "REQ-11",
+      "summary": "Create a marketplace page displaying all available courses in a responsive grid layout with course cards",
+      "acceptanceCriteria": [
+        "Marketplace page is accessible via route /marketplace",
+        "Course cards display all required information",
+        "Grid layout is responsive and follows existing design system",
+        "Loading states and empty states are handled"
+      ],
+      "file_operations": [
+        {
+          "path": "frontend/src/pages/MarketplacePage.tsx",
+          "operation": "create",
+          "description": "Create marketplace page component that fetches and displays all courses using useGetAllCourses hook. Display courses in a responsive grid layout with CourseCard components. Include loading skeletons and empty state messaging when no courses exist. Wire the generated course placeholder image at frontend/public/assets/generated/course-placeholder.dim_400x300.png as fallback for missing thumbnails."
+        },
+        {
+          "path": "frontend/src/components/CourseCard.tsx",
+          "operation": "create",
+          "description": "Create course card component displaying course thumbnail (with fallback to frontend/public/assets/generated/course-placeholder.dim_400x300.png), title, creator name (fetched via getUserProfile), price, and enrollment count. Include link to course detail page. Style consistently with existing PostCard component using warm earth tones."
+        },
+        {
+          "path": "frontend/src/App.tsx",
+          "operation": "modify",
+          "description": "Add route registration for /marketplace path pointing to MarketplacePage component. Wire into existing router configuration alongside feed and profile routes."
+        }
+      ]
+    },
+    {
+      "id": "REQ-12",
+      "summary": "Create a create course page with form for authenticated users to create new courses",
+      "acceptanceCriteria": [
+        "Create course page requires authentication",
+        "Form validates all required fields before submission",
+        "Image upload shows progress and handles errors",
+        "Success message and navigation to marketplace after creation"
+      ],
+      "file_operations": [
+        {
+          "path": "frontend/src/pages/CreateCoursePage.tsx",
+          "operation": "create",
+          "description": "Create course creation page requiring authentication. Display CreateCourseForm component within a card layout. Include navigation guard that redirects unauthenticated users."
+        },
+        {
+          "path": "frontend/src/components/CreateCourseForm.tsx",
+          "operation": "create",
+          "description": "Create form component with fields for title, description, price (number input for ICP tokens), and thumbnail image upload. Use blob-storage component for image upload with progress tracking via ExternalBlob.withUploadProgress. Validate all required fields before submission. Use useCreateCourse hook for submission. Show success message and navigate to /marketplace on success. Handle errors gracefully. Verify the blob-storage component's usage instructions before implementing."
+        },
+        {
+          "path": "frontend/src/App.tsx",
+          "operation": "modify",
+          "description": "Add route registration for /create-course path pointing to CreateCoursePage component. Wire into existing router configuration."
+        }
+      ]
+    },
+    {
+      "id": "REQ-13",
+      "summary": "Create course detail page showing full information, enrollment button, and course access for enrolled users",
+      "acceptanceCriteria": [
+        "Course detail page is accessible via route /course/:id",
+        "Page displays all course information and creator details",
+        "Enrollment button is visible only to authenticated non-enrolled users",
+        "Enrolled users can see course content or access link",
+        "Course creators see edit options for their own courses"
+      ],
+      "file_operations": [
+        {
+          "path": "frontend/src/pages/CourseDetailPage.tsx",
+          "operation": "create",
+          "description": "Create course detail page component that fetches course by ID using useGetCourseById hook and checks enrollment status using useIsUserEnrolled hook. Display full course information including thumbnail, title, description, price, enrollment count, and creator profile (fetched via getUserProfile). Show enrollment button for authenticated non-enrolled users using useEnrollInCourse hook. Display course access section for enrolled users. Show edit button for course creators linking to edit page. Handle loading states and error cases including course not found."
+        },
+        {
+          "path": "frontend/src/App.tsx",
+          "operation": "modify",
+          "description": "Add route registration for /course/:id path pointing to CourseDetailPage component. Wire into existing router configuration with dynamic ID parameter."
+        }
+      ]
+    },
+    {
+      "id": "REQ-14",
+      "summary": "Add 'My Courses' section to user profile pages showing created and enrolled courses",
+      "acceptanceCriteria": [
+        "User profile page includes course sections below existing content",
+        "Created courses section shows all courses by the user",
+        "Enrolled courses section shows all courses user has enrolled in",
+        "Sections are visually distinct and follow existing design patterns"
+      ],
+      "file_operations": [
+        {
+          "path": "frontend/src/pages/UserProfilePage.tsx",
+          "operation": "modify",
+          "description": "Add two new sections below existing posts section: 'Courses Created' and 'Courses Enrolled'. Use useGetCoursesByCreator hook to fetch created courses. Use useGetUserEnrollments hook to fetch enrollments and then fetch corresponding course details. Display courses using CourseCard components in responsive grid layouts. Handle empty states for each section. Follow existing section styling patterns."
+        }
+      ]
+    },
+    {
+      "id": "REQ-15",
+      "summary": "Add marketplace navigation link to header layout",
+      "acceptanceCriteria": [
+        "Marketplace link is visible in the header",
+        "Link is consistently styled with existing navigation elements",
+        "Active route highlighting works for marketplace pages"
+      ],
+      "file_operations": [
+        {
+          "path": "frontend/src/components/Layout.tsx",
+          "operation": "modify",
+          "description": "Add navigation link to /marketplace in the header alongside existing elements. Use Link component from TanStack Router. Style consistently with existing header elements using warm earth tone colors. Implement active route highlighting for marketplace-related routes."
+        }
+      ]
+    },
+    {
+      "id": "REQ-16",
+      "summary": "Create React Query hooks for all course-related backend operations",
+      "acceptanceCriteria": [
+        "Hooks follow existing patterns in useQueries.ts",
+        "Automatic cache invalidation on mutations",
+        "Loading and error states are properly handled",
+        "Type-safe query keys and results"
+      ],
+      "file_operations": [
+        {
+          "path": "frontend/src/hooks/useQueries.ts",
+          "operation": "modify",
+          "description": "Add React Query hooks for course operations: useGetAllCourses (fetches all courses), useGetCourseById (fetches single course by ID with enabled flag), useGetCoursesByCreator (fetches courses filtered by creator principal), useCreateCourse (mutation with cache invalidation for all courses and creator courses), useEnrollInCourse (mutation with cache invalidation for enrollments and course details), useGetUserEnrollments (fetches enrollments for a user principal), and useIsUserEnrolled (checks enrollment status for user and course). Follow existing patterns for query keys, error handling, and cache invalidation. Use Course, Enrollment types from backend.d.ts."
+        }
+      ]
+    }
+  ]
+}

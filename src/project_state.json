@@ -1,0 +1,174 @@
+{
+  "schemaVersion": "1.0.0",
+  "projectStateVersion": 5,
+  "summary": "Stock Sphere - A trading insights community platform with user profiles, authentication, social feed for sharing trading ideas, and a course marketplace where traders can monetize their knowledge",
+  "architectural_notes": [
+    "Built on Internet Computer Protocol using Motoko backend",
+    "React-based web application frontend",
+    "Authentication via Internet Identity (decentralized)",
+    "No external broker API integrations - simplified community-focused platform"
+  ],
+  "known_issues": [],
+  "isFixRequest": false,
+  "imageRequirements": "## Required Images\n- Course placeholder thumbnail illustration showing trading chart or education theme (course-placeholder.dim_400x300.png)",
+  "existing_features": [
+    {
+      "id": "feature-implement-internet-identity-authentication-system-allowing-users-to-sign-in-and-sign-out-securely",
+      "title": "Implement Internet Identity authentication system allowing users to sign in and sign out securely",
+      "reqIds": [
+        "REQ-1"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-create-user-profile-system-where-traders-can-set-up-their-profile-with-name-bio-trading-experience-level-and-profile-picture",
+      "title": "Create user profile system where traders can set up their profile with name, bio, trading experience level, and profile picture",
+      "reqIds": [
+        "REQ-2"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-build-a-social-feed-where-authenticated-users-can-post-trading-insights-ideas-and-market-commentary-with-timestamps",
+      "title": "Build a social feed where authenticated users can post trading insights, ideas, and market commentary with timestamps",
+      "reqIds": [
+        "REQ-3"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-add-ability-for-users-to-view-the-complete-feed-of-all-trading-insights-from-all-traders-on-the-platform",
+      "title": "Add ability for users to view the complete feed of all trading insights from all traders on the platform",
+      "reqIds": [
+        "REQ-4"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-implement-user-profile-pages-showing-individual-trader-information-and-their-post-history",
+      "title": "Implement user profile pages showing individual trader information and their post history",
+      "reqIds": [
+        "REQ-5"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-design-a-clean-trust-focused-visual-theme-with-professional-financial-dashboard-aesthetics-avoiding-blue-and-purple-color-schemes",
+      "title": "Design a clean, trust-focused visual theme with professional financial dashboard aesthetics, avoiding blue and purple color schemes",
+      "reqIds": [
+        "REQ-6"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-create-a-marketplace-page-that-displays-all-available-courses-in-a-grid-layout-with-course-cards-showing-thumbnail-title-creator-name-price-and-enrollment-count",
+      "title": "Create a marketplace page that displays all available courses in a grid layout with course cards showing thumbnail, title, creator name, price, and enrollment count",
+      "reqIds": [
+        "REQ-11"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-create-a-create-course-page-with-a-form-allowing-authenticated-users-to-create-new-courses-by-entering-title-description-price-and-uploading-a-thumbnail-image",
+      "title": "Create a create course page with a form allowing authenticated users to create new courses by entering title, description, price, and uploading a thumbnail image",
+      "reqIds": [
+        "REQ-12"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-create-a-course-detail-page-showing-full-course-information-creator-profile-enrollment-button-for-non-enrolled-users-and-access-to-course-content-for-enrolled-users",
+      "title": "Create a course detail page showing full course information, creator profile, enrollment button for non-enrolled users, and access to course content for enrolled users",
+      "reqIds": [
+        "REQ-13"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-add-a-my-courses-section-to-user-profile-pages-showing-courses-created-by-the-user-and-courses-they-are-enrolled-in-with-separate-tabs-or-sections-for-each",
+      "title": "Add a 'My Courses' section to user profile pages showing courses created by the user and courses they are enrolled in, with separate tabs or sections for each",
+      "reqIds": [
+        "REQ-14"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-add-a-navigation-link-to-the-marketplace-in-the-header-layout-alongside-existing-navigation-elements",
+      "title": "Add a navigation link to the marketplace in the header layout alongside existing navigation elements",
+      "reqIds": [
+        "REQ-15"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-create-react-query-hooks-for-all-course-related-backend-operations-including-creating-courses-fetching-all-courses-fetching-user-courses-enrolling-in-courses-and-fetching-user-enrollments",
+      "title": "Create React Query hooks for all course-related backend operations including creating courses, fetching all courses, fetching user courses, enrolling in courses, and fetching user enrollments",
+      "reqIds": [
+        "REQ-16"
+      ],
+      "version": 1
+    }
+  ],
+  "new_feature_requests": [
+    {
+      "id": "AR-1",
+      "summary": "User authentication with Internet Identity",
+      "reqIds": [],
+      "status": "pending"
+    },
+    {
+      "id": "AR-2",
+      "summary": "User profiles for traders",
+      "reqIds": [],
+      "status": "pending"
+    },
+    {
+      "id": "AR-3",
+      "summary": "Social feed for sharing trading insights and ideas",
+      "reqIds": [],
+      "status": "pending"
+    },
+    {
+      "id": "AR-4",
+      "summary": "Course marketplace for traders to monetize their knowledge",
+      "reqIds": [],
+      "status": "pending"
+    },
+    {
+      "id": "AR-5",
+      "summary": "Create a Course data type in the backend with fields for course ID, creator principal, title, description, price (in tokens or ICP), thumbnail URL, creation timestamp, and enrollment count",
+      "reqIds": [
+        "REQ-7"
+      ],
+      "status": "pending"
+    },
+    {
+      "id": "AR-6",
+      "summary": "Implement backend endpoints for creating courses (authenticated users only), retrieving all courses, retrieving courses by creator, and retrieving a single course by ID",
+      "reqIds": [
+        "REQ-8"
+      ],
+      "status": "pending"
+    },
+    {
+      "id": "AR-7",
+      "summary": "Add an Enrollment data type to track which users have enrolled in which courses, with fields for enrollment ID, user principal, course ID, enrollment timestamp, and completion status",
+      "reqIds": [
+        "REQ-9"
+      ],
+      "status": "pending"
+    },
+    {
+      "id": "AR-8",
+      "summary": "Implement backend endpoints for enrolling in courses (authenticated users only), retrieving user enrollments, and checking if a user is enrolled in a specific course",
+      "reqIds": [
+        "REQ-10"
+      ],
+      "status": "pending"
+    }
+  ],
+  "gameProjectType": "none",
+  "projectName": "Stock Sphere",
+  "clarification_mode": "instant",
+  "clarification_rounds": 0
+}
